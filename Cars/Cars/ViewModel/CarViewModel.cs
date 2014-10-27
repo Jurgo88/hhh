@@ -23,96 +23,40 @@ namespace Cars.ViewModel
         public static void GetFilename()
         {
 
-            // xml file
-            
-
-
-
-            // Create OpenFileDialog 
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-
-
-
-            // Set filter for file extension and default file extension 
             dlg.DefaultExt = ".xml";
             dlg.Filter = "XML Files (*.xml)|*.xml";
-
-
-            // Display OpenFileDialog by calling ShowDialog method 
             Nullable<bool> result = dlg.ShowDialog();
 
-
-            // Get the selected file name and display in a TextBox 
             if (result == true)
             {
 
-                // Open document 
                 filename = dlg.FileName;
-                
-
-                
-
                 
 
             }
             
-
-
             
         }
 
-        /*
-        public static  DataSet OpenXml()
+        class StringValue
         {
-            // xml file
-            //string filename = null;
-            DataSet dataset = new DataSet();
-            
-            
-
-            // Create OpenFileDialog 
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-
-
-
-            // Set filter for file extension and default file extension 
-            dlg.DefaultExt = ".xml";
-            dlg.Filter = "XML Files (*.xml)|*.xml";
-
-
-            // Display OpenFileDialog by calling ShowDialog method 
-            Nullable<bool> result = dlg.ShowDialog();
-
-
-            // Get the selected file name and display in a TextBox 
-            if (result == true)
+            public StringValue(string s)
             {
-                
-                // Open document 
-                filename = dlg.FileName;
-                dataset.ReadXml(filename);
-                
-                return dataset;
-                
-                //xmldata.DataSet.ReadXml(filename);
-
+                _value = s;
             }
-
-            else
-            {
-                return null;
-            }
-
-
+            public string Value { get { return _value; } set { _value = value; } }
+            string _value;
         }
-        */
+
         
         public static IList<Car> GetAll()
         {
-            //IList<Car> result = new List<Car>();
-            GetFilename();
             
-
+            GetFilename();
+            result.Clear();
+            if (filename != null)
+            {
                
                 
                 doc.Load(filename);
@@ -129,39 +73,25 @@ namespace Cars.ViewModel
 
                 }
 
-                //cars = result;
+                
+                filename = null;
                 return result;
+            }
 
+            else
+            {
+                return null;
+            }
             
 
             
 
         }
 
-        public static IList<Car> GetWeekendSale()
-        {
-            result.Where(a => a.Name.Equals("Skoda Octavia")).Where(a => (a.Date_of_sale.DayOfWeek == DayOfWeek.Saturday || a.Date_of_sale.DayOfWeek == DayOfWeek.Sunday)).Sum(a => a.Price);
-
-           
-            return result;
-            
-        }
+        
          
 
-        /*
-        public static XmlDataDocument ShowXml(string filename)
-        {
-            
-            XDocument xmlDoc = XDocument.Load(filename);
-            XmlDataDocument xmldata = new XmlDataDocument();
-            xmldata.DataSet.ReadXml(filename);
-            
-
-            return xmldata;
-            
-
-        }
-         */ 
+       
          
 
        

@@ -28,31 +28,62 @@ namespace Cars
             InitializeComponent();
         }
 
+
+        class StringValue
+        {
+            public StringValue(string s)
+            {
+                _value = s;
+            }
+            public string Value { get { return _value; } set { _value = value; } }
+            string _value;
+        }
+
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             IList<Car> car = new List<Car>();
-            IList<Car> car2 = new List<Car>();
+            
             car = Cars.ViewModel.CarViewModel.GetAll();
-            car2 = Cars.ViewModel.CarViewModel.GetWeekendSale();
             
 
-            //DataSet ds;
-           // ds = Cars.ViewModel.CarViewModel.OpenXml();
+            
             if (car != null)
             {
-                //dataGrid1.ItemsSource = ds.Tables[0].DefaultView;
+                
                 dataGrid1.ItemsSource = car;
-                dataGrid2.ItemsSource = car2;
+
+                IList<StringValue> resultText = new List<StringValue>();
+                IList<string> carModels = car.Select(c => c.Name).Distinct().ToList();
+                foreach (string name in carModels)
+                {
+                    double price = (car.Where(a => a.Name.Equals(name)).Where(a => (a.Date_of_sale.DayOfWeek == DayOfWeek.Saturday || a.Date_of_sale.DayOfWeek == DayOfWeek.Sunday)).Sum(a => a.Price));
+                    double tax = (car.FirstOrDefault(c => c.Name.Equals(name)).DPH);
+                    double priceDPH = price + (price * (tax / 100));
+                    string text = name + "\r\nCena bez DPH: "  + price.ToString("f2") + "   Cena s DPH: " + priceDPH.ToString("f2");
+                    resultText.Add(new StringValue(text));
+                }
+
+
+                
+
+                
+                dataGrid2.ItemsSource = resultText;
+
+                
+                var template = new DataTemplate();
+                template.VisualTree = new FrameworkElementFactory(typeof(TextBlock));
+                template.VisualTree.SetValue(TextBlock.TextProperty, "Weekend sale");
+                dataGrid2.Columns[0].HeaderTemplate = template;
+
+                
             }
-            
+
             
 
         }
 
-        private void gridView1_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+        
 
         
     }

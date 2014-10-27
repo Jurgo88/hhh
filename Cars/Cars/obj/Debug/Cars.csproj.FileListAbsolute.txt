@@ -10,3 +10,4 @@ c:\users\juraj\documents\visual studio 2013\Projects\Cars\Cars\obj\Debug\Cars.ex
 c:\users\juraj\documents\visual studio 2013\Projects\Cars\Cars\obj\Debug\Cars.pdb
 c:\users\juraj\documents\visual studio 2013\Projects\Cars\Cars\obj\Debug\View\MainWindow.baml
 c:\users\juraj\documents\visual studio 2013\Projects\Cars\Cars\obj\Debug\View\MainWindow.g.cs
+C:\Users\Juraj\documents\visual studio 2013\Projects\Cars\Cars\obj\Debug\Cars.csprojResolveAssemblyReference.cache
