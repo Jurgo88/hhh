@@ -1,0 +1,12 @@
+c:\users\juraj\documents\visual studio 2013\Projects\Cars\Cars\bin\Debug\Cars.exe.config
+c:\users\juraj\documents\visual studio 2013\Projects\Cars\Cars\obj\Debug\App.g.cs
+c:\users\juraj\documents\visual studio 2013\Projects\Cars\Cars\obj\Debug\Cars_MarkupCompile.cache
+c:\users\juraj\documents\visual studio 2013\Projects\Cars\Cars\obj\Debug\Cars.g.resources
+c:\users\juraj\documents\visual studio 2013\Projects\Cars\Cars\obj\Debug\Cars.Properties.Resources.resources
+c:\users\juraj\documents\visual studio 2013\Projects\Cars\Cars\obj\Debug\Cars.csproj.GenerateResource.Cache
+c:\users\juraj\documents\visual studio 2013\Projects\Cars\Cars\bin\Debug\Cars.exe
+c:\users\juraj\documents\visual studio 2013\Projects\Cars\Cars\bin\Debug\Cars.pdb
+c:\users\juraj\documents\visual studio 2013\Projects\Cars\Cars\obj\Debug\Cars.exe
+c:\users\juraj\documents\visual studio 2013\Projects\Cars\Cars\obj\Debug\Cars.pdb
+c:\users\juraj\documents\visual studio 2013\Projects\Cars\Cars\obj\Debug\View\MainWindow.baml
+c:\users\juraj\documents\visual studio 2013\Projects\Cars\Cars\obj\Debug\View\MainWindow.g.cs
